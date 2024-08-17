@@ -11,6 +11,8 @@
 		66018E252C70741500137669 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66018E242C70741500137669 /* ContentView.swift */; };
 		66018E272C70741700137669 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66018E262C70741700137669 /* Assets.xcassets */; };
 		66018E2A2C70741700137669 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66018E292C70741700137669 /* Preview Assets.xcassets */; };
+		66018E312C70744D00137669 /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66018E302C70744D00137669 /* Face.swift */; };
+		66018E332C70761500137669 /* EditFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66018E322C70761500137669 /* EditFace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		66018E242C70741500137669 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		66018E262C70741700137669 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66018E292C70741700137669 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		66018E302C70744D00137669 /* Face.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
+		66018E322C70761500137669 /* EditFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFace.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				66018E222C70741500137669 /* NameFaceApp.swift */,
 				66018E242C70741500137669 /* ContentView.swift */,
+				66018E302C70744D00137669 /* Face.swift */,
+				66018E322C70761500137669 /* EditFace.swift */,
 				66018E262C70741700137669 /* Assets.xcassets */,
 				66018E282C70741700137669 /* Preview Content */,
 			);
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				66018E252C70741500137669 /* ContentView.swift in Sources */,
+				66018E312C70744D00137669 /* Face.swift in Sources */,
+				66018E332C70761500137669 /* EditFace.swift in Sources */,
 				66018E232C70741500137669 /* NameFaceApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -4,21 +4,59 @@
 //
 //  Created by Adam Elfsborg on 2024-08-17.
 //
-
+import SwiftData
 import SwiftUI
+import PhotosUI
 
 struct ContentView: View {
+    @Environment(\.modelContext) var modelContext
+    @Query() var faces: [Face]
+    @State private var path = NavigationPath()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack(path: $path) {
+            List {
+                ForEach(faces) { face in
+                    NavigationLink(value: face) {
+                        HStack {
+                            
+                            Text(face.name)
+                           
+                            Spacer()
+                           
+                            if !face.photo.isEmpty {
+                                Image(uiImage: UIImage(data: face.photo)!)
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
+                                    .cornerRadius(15)
+                            }
+                          
+                        }
+                    }
+                }
+            }
+            .navigationTitle("NameFace")
+            .toolbar {
+                Button("Import Face") {
+                    let face = Face(name: "", timestamp: .now, photo: Data())
+                    modelContext.insert(face)
+                    path.append(face)
+                }
+            }
+            .navigationDestination(for: Face.self) { face in
+                EditFace(face: face)
+            }
         }
-        .padding()
     }
+    
+ 
 }
 
 #Preview {
-    ContentView()
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: Face.self, configurations: config)
+    
+    return ContentView()
+        .modelContainer(container)
+    
 }
