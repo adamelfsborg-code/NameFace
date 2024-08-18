@@ -12,6 +12,7 @@ struct ContentView: View {
     @Environment(\.modelContext) var modelContext
     @Query() var faces: [Face]
     @State private var path = NavigationPath()
+    let locationFetcher = LocationFetcher()
 
     var body: some View {
         NavigationStack(path: $path) {
@@ -38,7 +39,10 @@ struct ContentView: View {
             .navigationTitle("NameFace")
             .toolbar {
                 Button("Import Face") {
-                    let face = Face(name: "", timestamp: .now, photo: Data())
+                    let latitude = locationFetcher.lastKnownLocation?.latitude ?? 0
+                    let longitude = locationFetcher.lastKnownLocation?.longitude ?? 0
+                    
+                    let face = Face(name: "", timestamp: .now, latitude: latitude, longitude: longitude, photo: Data())
                     modelContext.insert(face)
                     path.append(face)
                 }
@@ -47,6 +51,10 @@ struct ContentView: View {
                 EditFace(face: face)
             }
         }
+    }
+    
+    init() {
+        locationFetcher.start()
     }
     
  
